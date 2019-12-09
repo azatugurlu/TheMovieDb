@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.themoviedb"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField('String', 'API_KEY', '"2696829a81b1b5827d515ff121700838"')
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVer"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVer"
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //dagger
+    implementation "com.google.dagger:dagger:$rootProject.daggerVer"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVer"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVer"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVer"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVer"
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
+    //LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.lifecycle:runtime:1.1.1"
+    //annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+
+    //Paging
+    implementation 'android.arch.paging:runtime:1.0.1'
+
+    //Navigation
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
