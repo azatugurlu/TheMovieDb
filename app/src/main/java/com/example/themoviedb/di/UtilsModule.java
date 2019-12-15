@@ -20,6 +20,7 @@ import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -59,7 +60,15 @@ public class UtilsModule {
 
     @Provides
     @Singleton
-    OkHttpClient getRequestHeader() {
+    HttpLoggingInterceptor provideHttpInterceptor() {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return interceptor;
+    }
+
+    @Provides
+    @Singleton
+    OkHttpClient getRequestHeader(HttpLoggingInterceptor httpLoggingInterceptor) {
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
@@ -68,7 +77,7 @@ public class UtilsModule {
             Request request = original.newBuilder()
                     .build();
             return chain.proceed(request);
-        })
+        }).addInterceptor(httpLoggingInterceptor)
                 .connectTimeout(100, TimeUnit.SECONDS)
                 .writeTimeout(100, TimeUnit.SECONDS)
                 .readTimeout(300, TimeUnit.SECONDS);
