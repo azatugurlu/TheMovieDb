@@ -12,6 +12,7 @@ buildscript {
         appcompatVer = '1.1.0'
         daggerVer = '2.20'
         retrofitVer = '2.4.0'
+        supportLibraryVersion = '1.0.0'
     }
     repositories {
         google()

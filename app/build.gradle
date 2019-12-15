@@ -34,6 +34,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appcompatVer"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVer"
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation "com.google.android.material:material:$rootProject.supportLibraryVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.supportLibraryVersion"
 
     //dagger
     implementation "com.google.dagger:dagger:$rootProject.daggerVer"
@@ -62,6 +64,10 @@ dependencies {
 
     //Navigation
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+
+    // Picasso network image requester
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
 
 
     testImplementation 'junit:junit:4.12'

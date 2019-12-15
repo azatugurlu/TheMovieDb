@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#0287F1</color>
+    <color name="colorAccent">#686868</color>
+    <color name="toolbarIconColor">#FFFFFF</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlack2">#2E2E2E</color>
+    <color name="colorPagerBackground">#f4f3f3</color>
+    <color name="colorPagerButtonColor">#507B9F</color>
+    <color name="backgroundColor">#ffffff</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorSemiTrasparent">#c0000000</color>
+    <color name="colorGreen">#8BC34A</color>
+
 </resources>

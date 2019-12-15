@@ -3,15 +3,19 @@ package com.example.themoviedb.ui;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.paging.PagedList;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.themoviedb.R;
 import com.example.themoviedb.TheMovieDbApplication;
@@ -33,6 +37,9 @@ public class MovieListFragment extends Fragment {
     ViewModelFactory viewModelFactory;
 
     private MovieViewModel viewModel;
+    private MoviePagingAdapter adapter;
+    private RecyclerView recyclerView;
+    private ProgressBar progressBarMovieList;
 
 
     @Override
@@ -49,9 +56,25 @@ public class MovieListFragment extends Fragment {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieViewModel.class);
         viewModel.getMovies().observe(this, this::consumeResponse);
         viewModel.setSearchText("test");
+        adapter = new MoviePagingAdapter((view, position) -> {
+
+        }, getContext());
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewMovieList);
+        progressBarMovieList = (ProgressBar) view.findViewById(R.id.progressBarMovieList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+
     }
 
     private void consumeResponse(PagedList<Movie> pagedList){
-
+        progressBarMovieList.setVisibility(View.GONE);
+        if (pagedList != null) {
+            adapter.submitList(pagedList);
+        }
     }
 }
