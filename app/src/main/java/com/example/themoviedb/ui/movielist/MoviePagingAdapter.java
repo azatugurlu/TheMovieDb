@@ -1,4 +1,4 @@
-package com.example.themoviedb.ui;
+package com.example.themoviedb.ui.movielist;
 
 import android.content.Context;
 import android.view.LayoutInflater;

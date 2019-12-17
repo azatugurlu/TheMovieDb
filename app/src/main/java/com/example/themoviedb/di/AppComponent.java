@@ -1,6 +1,6 @@
 package com.example.themoviedb.di;
 
-import com.example.themoviedb.ui.MovieListFragment;
+import com.example.themoviedb.ui.movielist.MovieListFragment;
 import javax.inject.Singleton;
 import dagger.Component;
 

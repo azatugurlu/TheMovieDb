@@ -3,10 +3,12 @@ package com.example.themoviedb.model;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Movie {
+public class Movie implements Serializable {
     private String poster_path;
+    private String backdrop_path;
     private boolean adult;
     private String overview;
     private String release_date;
@@ -18,10 +20,11 @@ public class Movie {
     private int vote_count;
     private double vote_average;
 
-    public Movie(String poster_path, boolean adult, String overview, String release_date, int id,
+    public Movie(String poster_path, String backdrop_path, boolean adult, String overview, String release_date, int id,
                  String original_title, String original_language, String title, double popularity,
                  int vote_count, double vote_average) {
         this.poster_path = poster_path;
+        this.backdrop_path = backdrop_path;
         this.adult = adult;
         this.overview = overview;
         this.release_date = release_date;
@@ -40,6 +43,14 @@ public class Movie {
 
     public void setPoster_path(String poster_path) {
         this.poster_path = poster_path;
+    }
+
+    public String getBackdrop_path() {
+        return backdrop_path;
+    }
+
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
     }
 
     public boolean isAdult() {
@@ -133,6 +144,7 @@ public class Movie {
                 vote_count == movie.vote_count &&
                 Double.compare(movie.vote_average, vote_average) == 0 &&
                 Objects.equals(poster_path, movie.poster_path) &&
+                Objects.equals(backdrop_path, movie.backdrop_path) &&
                 Objects.equals(overview, movie.overview) &&
                 Objects.equals(release_date, movie.release_date) &&
                 Objects.equals(original_title, movie.original_title) &&
@@ -142,7 +154,7 @@ public class Movie {
 
     @Override
     public int hashCode() {
-        return Objects.hash(poster_path, adult, overview, release_date, id, original_title, original_language, title, popularity, vote_count, vote_average);
+        return Objects.hash(poster_path, backdrop_path, adult, overview, release_date, id, original_title, original_language, title, popularity, vote_count, vote_average);
     }
 
     public static DiffUtil.ItemCallback<Movie> DIFF_CALLBACK = new DiffUtil.ItemCallback<Movie>() {

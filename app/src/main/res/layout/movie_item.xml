@@ -73,8 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:ellipsize="end"
-                android:maxLength="40"
-                android:singleLine="true"
+                android:maxLength="180"
+                android:singleLine="false"
                 android:textSize="12sp" />
 
 

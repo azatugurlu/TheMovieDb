@@ -1,4 +1,4 @@
-package com.example.themoviedb.ui;
+package com.example.themoviedb.ui.movielist;
 
 import androidx.paging.DataSource;
 

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.themoviedb.repository.Repository;
-import com.example.themoviedb.ui.MovieViewModel;
+import com.example.themoviedb.ui.movielist.MovieViewModel;
 
 import javax.inject.Inject;
 

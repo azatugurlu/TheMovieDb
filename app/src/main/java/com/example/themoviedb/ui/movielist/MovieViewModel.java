@@ -1,8 +1,7 @@
-package com.example.themoviedb.ui;
+package com.example.themoviedb.ui.movielist;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
